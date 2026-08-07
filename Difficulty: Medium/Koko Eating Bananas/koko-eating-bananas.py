@@ -3,8 +3,7 @@ class Solution:
         # Code here
         low=1
         high=max(arr)
-        
-        while low <=high:
+        while low<=high:
             speed=low+(high-low)//2
             
             if self.complete(arr,k,speed):
@@ -12,6 +11,7 @@ class Solution:
                 high=speed-1
             else:
                 low=speed+1
+                
         return ans 
         
     def complete(self,arr,k,speed):

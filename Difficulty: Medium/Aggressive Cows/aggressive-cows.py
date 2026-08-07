@@ -1,32 +1,29 @@
 class Solution:
     def aggressiveCows(self, arr, k):
+        # code here
         arr.sort()
-
-        low = 1
-        high = arr[-1] - arr[0]
-        ans = 0
-
-        while low <= high:
-            mid = low + (high - low) // 2
-
-            if self.largmin(arr, k, mid):
-                ans = mid
-                low = mid + 1      # Try for a larger minimum distance
+        
+        low=1
+        high=arr[len(arr)-1]-arr[0]
+        
+        while low<=high:
+            pos=low+(high-low)//2
+            
+            if self.proper(arr,k,pos):
+                ans=pos
+                low=pos+1
             else:
-                high = mid - 1     # Reduce the distance
-
-        return ans
-
-    def largmin(self, arr, k, dis):
-        co_ord = arr[0]
-        cnt = 1
-
-        for i in range(1, len(arr)):
-            if arr[i] - co_ord >= dis:
-                cnt += 1
-                co_ord = arr[i]
-
-                if cnt == k:
-                    return True
-
-        return False
+                high=pos-1
+                
+        return ans 
+        
+    def proper(self,arr,k,pos):
+        count=1
+        last_pos=arr[0]
+        
+        for i in range (1,len(arr)):
+            if arr[i]-last_pos >=pos:
+                count+=1
+                last_pos=arr[i]
+                
+        return  count>=k

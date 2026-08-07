@@ -1,26 +1,34 @@
 class Solution:
     def hasTripletSum(self, arr, target):
         # Code Here
-        # result=[]
         arr.sort()
-        n=len(arr)
-        for i in range(n-2):
-            if i >0 and  arr[i]==arr[i-1]:
-                continue
+        for i in range(0,len(arr)-1):
+            if i>0 and arr[i]==arr[i-1]:
+                continue 
             left=i+1
-            right=n-1
-            while (left<right):
-                s=arr[i]+arr[left]+arr[right]
+            right=len(arr)-1
+            while left<right:
+                summ=arr[i]+arr[left]+arr[right]
                 
-                if s==target:
+                if summ==target:
                     return True 
                     
-                elif s>target:
+                    
+                    while left+1<right and arr[left] ==arr[left+1]:
+                        left+=1
+                    while right-1>left and arr[right]==arr[right-1]:
+                        right-=1
+                        
+                
+                elif summ>target:
                     right-=1
+                    
+                    
+                    
+                    
                 else:
                     left+=1
                     
-            
-                    
         return False 
+                    
                 

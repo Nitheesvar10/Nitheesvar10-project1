@@ -4,29 +4,29 @@ class Solution:
         low=max(arr)
         high=sum(arr)
         ans=high
-        
-        while (low<=high):
+        while low<=high:
             cap=low+(high-low)//2
             
-            if self.shipcap(arr,D,cap):
+            if self.capable(arr,D,cap):
                 ans=cap
                 high=cap-1
+                
             else:
                 low=cap+1
         return ans 
-                
-                
-        
-    def shipcap(self,arr,D,cap):
-        day=1
-        cur_cap=0
+    
+    def capable(self,arr,D,cap):
+        d=1
+        c=0
         for i in arr:
-            if cur_cap+i>cap:
-                day=day+1
-                cur_cap=i
+            if c+i>cap:
+                d+=1
+                c=i
             else:
-                cur_cap+=i
-        return day<=D
+                c+=i
+        return d<=D
+        
+                
             
             
             

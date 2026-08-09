@@ -1,0 +1,9 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/the-lazy-caterers-problem2527/1">The Lazy Caterer's Problem</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">Given an integer <strong>n</strong>, denoting the number of cuts that can be made on a pancake, find the maximum number of pieces that can be formed by making n&nbsp;cuts.<br><strong>Note:</strong> Cuts can't be horizontal.</span></p>
+<p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>n = 5
+<strong>Output: </strong>16
+<strong>Explanation:  </strong>16 pieces can be formed by making 5 cuts.<br></span> <img style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/930575/Web/Other/blobid1_1783329515.png" width="146" height="146"></pre>
+<pre><strong><span style="font-size: 18px;">Input: </span></strong><span style="font-size: 18px;">n = 3
+<strong>Output: </strong>7
+<strong>Explanation: </strong>7 pieces can be formed by  making 3 cuts.<br></span><img style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/930575/Web/Other/blobid0_1783329479.png" width="146" height="146"></pre>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ n ≤ 10<sup>4</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Visa</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Mathematical</code>&nbsp;

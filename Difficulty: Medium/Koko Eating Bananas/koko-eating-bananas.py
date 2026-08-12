@@ -3,20 +3,25 @@ class Solution:
         # Code here
         low=1
         high=max(arr)
-        while low<=high:
-            speed=low+(high-low)//2
+        ans=None 
+        while low <=high :
+            mid=low+(high-low)//2
             
-            if self.complete(arr,k,speed):
-                ans=speed
-                high=speed-1
+            if self.caneat(arr,mid,k):
+                ans=mid
+                high=mid-1 
             else:
-                low=speed+1
+                low=mid+1
+                
+            
                 
         return ans 
-        
-    def complete(self,arr,k,speed):
-        s=0
+    
+    
+    def caneat(self,arr,speed,k):
+        hrs=0
         for i in arr:
-            s+=(i+speed-1)//speed
+            hrs+=(i+speed-1)//speed
             
-        return s<=k
+        return hrs<=k
+        

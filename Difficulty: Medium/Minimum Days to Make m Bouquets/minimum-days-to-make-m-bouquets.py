@@ -1,37 +1,31 @@
 class Solution:
     def minDaysBloom(self, arr, k, m):
         # Code here
-        
-        if k*m >len(arr):
-            return -1
-            
+        if k*m > len(arr):
+            return -1 
+        ans=-1
         low=min(arr)
         high=max(arr)
-    
         while low<=high:
-            day=low+(high-low)//2
+            mid=low+(high-low)//2
             
-            if self.canmake(arr,m,k,day):
-                ans=day
-                high=day-1
-                
+            if self.make(arr,k,m,mid):
+                ans=mid
+                high=mid-1
             else:
-                low=day+1
-                
-        return ans
+                low=mid+1
+        return ans 
         
-    def canmake(self,arr,m,k,day):
-        count=0
+    def make(self,arr,k,m,mid):
         b=0
+        count=0
         for i in arr:
-            if i<=day:
+            if i<=mid:
                 count+=1
-                if count>=k:
+                if count==k:
                     b+=1
                     count=0
+                    
             else:
-                count=0
-        return  b>=m
-            
-        
-        
+                count =0
+        return b>=m

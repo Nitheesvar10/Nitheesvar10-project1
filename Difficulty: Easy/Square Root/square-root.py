@@ -2,25 +2,20 @@ class Solution:
     def floorSqrt(self, n): 
         # code here
         if n<=1:
-            return n
+            return 1
             
-        left=1
+        left=0
         right=n//2
         
-        while left<=right:
+        while left <=right:
             mid=left+(right-left)//2
             
             if mid*mid==n:
-                return mid
+                return mid 
                 
-            if (mid*mid)<n:
-                left=mid+1
-                
-            else:
+            elif mid*mid>n:
                 right=mid-1
                 
-        return right 
-                
-        
-                
-            
+            else:
+                left=mid+1
+        return right

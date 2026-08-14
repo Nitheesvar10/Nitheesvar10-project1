@@ -1,22 +1,27 @@
 class Solution:
     def isBalanced(self, s):
-        stack = []
-
-        for ch in s:
-            if ch in "([{":
-                stack.append(ch)
+        # code here
+        
+        stack=[]
+        
+        for i in s:
+            if i in "([{":
+                stack.append(i)
+                
             else:
                 if not stack:
-                    return False
-
-                if ch == ")" and stack[-1] == "(":
+                    return False 
+               
+                if i==")" and stack[-1]=="(":
                     stack.pop()
-                elif ch == "]" and stack[-1] == "[":
+                    
+                elif i=="]" and stack[-1]=="[":
                     stack.pop()
-                elif ch == "}" and stack[-1] == "{":
+                    
+                elif i=="}" and stack[-1]=="{":
                     stack.pop()
-    
+                
                 else:
                     return False 
-
-        return len(stack) == 0
+                
+        return  len(stack)==0

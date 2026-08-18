@@ -1,18 +1,18 @@
 class Solution:
     def sort012(self, arr):
         # code here
-        low=0
+        left=0
         mid=0
-        high=len(arr)-1
-        while (mid<=high):
+        right=len(arr)-1
+        while right >=mid:
             if arr[mid]==0:
-                arr[low],arr[mid]=arr[mid],arr[low]
-                low+=1
+                arr[mid],arr[left]=arr[left],arr[mid]
                 mid+=1
+                left+=1
             elif arr[mid]==1:
                 mid+=1
             else:
-                arr[high],arr[mid]=arr[mid],arr[high]
-                high-=1
-                
+                arr[mid],arr[right]=arr[right],arr[mid]
+                right-=1
+            
         return arr

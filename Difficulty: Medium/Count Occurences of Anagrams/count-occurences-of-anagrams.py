@@ -1,36 +1,32 @@
 class Solution:
+
+	
 	def search(self,pat, txt):
-	    # code here\
+	    # code here
+	    h1={}
+	    h2={}
 	    count=0
-	    f1={}
-	    for i in pat:
-	        f1[i]=f1.get(i,0)+1
-	        
-	    f2={}
 	    
-	    left=0 
+	    for i in range(len(pat)):
+	        h1[pat[i]]=h1.get(pat[i],0)+1
+	        
+	    left=0
 	    right=0
 	    
 	    while right <len(txt):
-	        f2[txt[right]]=f2.get(txt[right],0)+1
+	        h2[txt[right]]=h2.get(txt[right],0)+1
 	        
-	        while right-left+1>len(pat):
-	            f2[txt[left]]-=1
+	        while right-left+1 >len(pat):
+	            h2[txt[left]]-=1
+	            if h2[txt[left]]==0:
+	                del h2[txt[left]]
 	            
-	            if f2[txt[left]]==0:
-	                del f2[txt[left]]
-	                
 	            left+=1
 	            
-	           
-	        if right-left+1==len(pat):
-	            if f1==f2:
-	                count+=1
-	               
-
-	        
+	        if h1==h2:
+	            count+=1
+	            
 	        right+=1
-	        
-	    return count    
-	   
-	        
+	       
+	            
+	    return count 

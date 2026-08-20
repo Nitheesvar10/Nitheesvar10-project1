@@ -3,4 +3,3 @@ class Solution:
         # code here
         d=s[::-1]
         return d
-        

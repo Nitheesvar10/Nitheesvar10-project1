@@ -3,20 +3,29 @@ class Solution:
         # code here
         left=0
         right=0
-        count=0
-        f={}
-        while  right<len(s):
-            f[s[right]]=f.get(s[right],0)+1
+        hash={}
+        cnt=0
+        max_count=0
+        while right<len(s):
+            hash[s[right]]=hash.get(s[right],0)+1
+            cnt+=1
             
-            while f[s[right]]>=2:
-                f[s[left]]-=1
+            while hash[s[right]]==2:
+                hash[s[left]]-=1
+                if hash[s[left]]==0:
+                    del hash[s[left]]
                 
                 left+=1
                 
-            count=max(count,right-left+1)
+            max_count=max(max_count,right-left+1)
             
             right+=1
             
-        return count
+        return max_count
+        
                 
+            
+            
+            
+            
             

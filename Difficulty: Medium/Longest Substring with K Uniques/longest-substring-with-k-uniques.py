@@ -2,24 +2,30 @@ class Solution:
     def longestKSubstr(self, s, k):
         # code here
         
-        count=-1
+        if k>len(s):
+            return -1
+        hash={}
         left=0
         right=0
-        f={}
+        cnt=0
+        max_count=-1
+        
         while right <len(s):
-            f[s[right]]=f.get(s[right],0)+1
+            hash[s[right]]=hash.get(s[right],0)+1
+            cnt+=1
             
-            while len(f)>k:
-                f[s[left]]-=1
-                if f[s[left]]==0:
-                    del f[s[left]]
+            
+            while len(hash)>k:
+                hash[s[left]]-=1
+                if hash[s[left]]==0:
+                    del hash[s[left]]
                 left+=1
                 
-            if len(f)==k:
-                
-                count=max(count,right-left+1)
+            if len(hash)==k:   
+                max_count=max(max_count,right-left+1)
             
             right+=1
+        return max_count
             
-            
-        return count
+        
+        

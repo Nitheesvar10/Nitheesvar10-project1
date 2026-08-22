@@ -8,30 +8,29 @@ class Node:
 from collections import deque
 class Solution:
     def zigZagTraversal(self, root):
-        q1=deque([root])
+        # code here
         result=[]
-        flag=True
-        while q1:
+        q=deque([root])
+        flag=True 
+        while q:
             q2=deque([])
-            l=len(q1)
-            for _ in range(l):
-                node=q1.popleft()
+            
+            leng=len(q)
+            for _ in range(leng):
+                e=q.popleft()
                 
                 if flag:
-                    q2.append(node.data)
+                    q2.append(e.data)
                 else:
-                
-                    q2.appendleft(node.data)
-                if node.left:
-                    q1.append(node.left)
-                if node.right:
-                    q1.append(node.right)
+                    q2.appendleft(e.data)
+                    
+                if e.left:
+                    q.append(e.left)
+                if e.right:
+                    q.append(e.right)
                     
             flag=not flag
             result.extend(q2)
             
         return result 
-            
                 
-            
-        

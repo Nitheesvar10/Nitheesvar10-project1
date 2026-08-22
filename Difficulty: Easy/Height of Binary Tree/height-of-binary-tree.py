@@ -7,13 +7,16 @@ class Node:
 '''
 
 class Solution:
-    def height(self, root):
-        # code here
-        if root is None:
+    def solve(self,node):
+        if node is None:
             return -1
+            
+        left=self.solve(node.left)
+        right=self.solve(node.right)
         
-        left=self.height(root.left)
-        right=self.height(root.right)
         return 1+max(left,right)
-        
+    
+    def height(self, root):
+        return self.solve(root)
+        # code here
         

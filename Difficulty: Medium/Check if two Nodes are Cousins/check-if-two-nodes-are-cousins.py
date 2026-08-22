@@ -7,30 +7,29 @@ class Node:
 '''
 class Solution:
     def solve(self,node,a,b,parent,depth):
-        
         if node is None:
             return 
         
         if node.data==a:
-            self.a_parent=parent
-            self.depth_a=depth
-        
+            self.parent_a=parent
+            self.a_d=depth
         if node.data==b:
-            self.b_parent=parent
-            self.depth_b=depth
-            
+            self.parent_b=parent
+            self.b_d=depth
+        
         self.solve(node.left,a,b,node,depth+1)
         self.solve(node.right,a,b,node,depth+1)
         
     def areCousins(self, root, a, b):
-        self.a_parent=None
-        self.b_parent=None
-        self.depth_a=0
-        self.depth_b=0
+        # code here
+        self.parent_a=None
+        self.parent_b=None
+        self.a_d=-1
+        self.b_d=-1
+        
         self.solve(root,a,b,None,0)
         
-        return (self.a_parent !=self.b_parent) and (self.depth_a==self.depth_b)
-
-        
-        # code here
-        
+        if (self.parent_a !=self.parent_b) and (self.a_d==self.b_d):
+            return True 
+        else:
+            return False 

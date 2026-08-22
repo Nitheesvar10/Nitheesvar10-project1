@@ -5,30 +5,26 @@ class Node:
         self.data = val
         self.left = None
         self.nextRight = None
-'''        
+'''  
 from collections import deque
+
 class Solution:
     def connect(self, root):
         # code here 
-        
-        if root is None:
-            return 
-        
         q=deque([root])
+        
         while q:
-            size=len(q)
-            for i in range(size):
-                node=q.popleft()
-                
-                if (i<size-1):
-                    node.nextRight=q[0]
-                else:
-                    node.nextRight=None 
-                
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+            lenght=len(q)
+            
+            for i in range(lenght):
+                e=q.popleft()
+                if i <lenght-1:
+                    e.nextRight=q[0]
+                    
+                if e.left:
+                    q.append(e.left)
+                if e.right:
+                    q.append(e.right)
+        return 
                     
                 
-        return root 

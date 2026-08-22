@@ -1,5 +1,4 @@
-'''
-Structure of Tree Node
+'''Structure of Tree Node
 class Node:
     def __init__(self,val):
         self.data = val
@@ -8,17 +7,20 @@ class Node:
 '''
 
 class Solution:
-    def solve(self,node):
+    def dfs(self,node):
         if node is None:
             return 
         self.result.append(node.data)
-        self.solve(node.left)
-        self.solve(node.right)
+        self.dfs(node.left)
+        self.dfs(node.right)
         
         
     def preOrder(self, root):
         
     # code here
         self.result=[]
-        self.solve(root)
-        return self.result 
+        self.dfs(root)
+        
+        return self.result
+    
+    

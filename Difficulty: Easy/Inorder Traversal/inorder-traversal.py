@@ -7,17 +7,17 @@ class Node:
 '''
 
 class Solution:
-    def solve(self,node):
+    def dfs(self,node):
         if node is None:
             return 
-        self.solve(node.left)
+        
+        self.dfs(node.left)
         self.result.append(node.data)
-        self.solve(node.right)
-        
-        
+        self.dfs(node.right)
     def inOrder(self, root):
-        self.result=[]
-        self.solve(root)
-        return self.result 
         # code here
+        
+        self.result=[]
+        self.dfs(root)
+        return self.result
         

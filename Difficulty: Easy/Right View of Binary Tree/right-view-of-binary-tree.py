@@ -7,28 +7,25 @@ class Node:
         self.right = None
 '''
 from collections import deque
+
 class Solution:
     def rightView(self, root):
-        
-        if root is None:
-            return []
-            
-        result=[]
         # code here
+        
+        result=[]
         q=deque([root])
         while q:
-            l=len(q)
-            for i in range(l):
-                node=q.popleft()
-                
-                if i==l-1:
-                    result.append(node.data)
+            lenght=len(q)
+            for i in range(lenght):
+                e=q.popleft()
+                if i==lenght-1:
+                    result.append(e.data)
                     
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+                if e.left:
+                    q.append(e.left)
+                if e.right:
+                    q.append(e.right)
                     
-        return result
-            
+        return result 
+                    
         

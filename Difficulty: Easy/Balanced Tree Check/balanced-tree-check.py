@@ -8,27 +8,29 @@ class Node:
 
 class Solution:
     def solve(self,node):
-        if node is None:
+        if node==None:
             return 0 
             
         left=self.solve(node.left)
         if left==-1:
-            return -1
-        right=self.solve(node.right)
-        if right==-1:
-            return -1
-
-        if abs(left-right)>=2:
             return -1 
             
-        return 1+max(left,right)
+        right=self.solve(node.right)
+        if right ==-1:
+            return -1 
         
+        if abs(right-left)>1:
+            return -1 
+        
+            
+        return 1+max(left,right)
     def isBalanced(self, root):
         # code here
-        
-        c=self.solve(root)
-        if c!=-1:
-            return True 
-        else:
+        x=self.solve(root)
+        if x==-1:
             return False 
-            
+        else:
+            return True 
+        
+        
+        

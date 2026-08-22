@@ -14,13 +14,16 @@ class Solution:
         left=self.solve(node.left)
         right=self.solve(node.right)
         self.diameter=max(self.diameter,left+right)
-        return 1+max(left,right)
-    def diameter(self, root):
-        # code here
-        self.diameter=0
-        self.solve(root)
+        return 1 + max(left,right)
         
-        return self.diameter 
+    def diameter(self, root):
+        if root is None :
+            return None 
+        self.diameter=0
+        
+        self.solve(root)
+        return self.diameter
+        
         
         
         

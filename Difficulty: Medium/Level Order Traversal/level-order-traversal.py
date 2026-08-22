@@ -8,17 +8,16 @@ class Node:
 from collections import deque
 class Solution:
     def levelOrder(self, root):
-        # code here\
-        q=deque([root])
+        # code here
         result=[]
-        while q:
-            node=q.popleft()
-            result.append(node.data)
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
+        q=deque([root])
+        while len(q)!=0:
+            e=q.popleft()
+            result.append(e.data)
+            if e.left:
+                q.append(e.left)
+            if e.right:
+                q.append(e.right)
                 
         return result 
-                
-        
+            

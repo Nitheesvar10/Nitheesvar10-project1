@@ -5,30 +5,34 @@ class Node:
         self.left = None
         self.right = None
 '''
-from collections import deque
-
+from collections import deque 
 class Solution:
     def topView(self, root):
         # code here
-        
-        dict={}
+        d={}
+        result=[]
         q=deque([[0,root]])
         while q:
             line,node=q.popleft()
-            if line not in dict:
-                dict[line]=node.data
-            
+            if line not in d:
+                d[line]=node.data
+                
             if node.left:
                 q.append([line-1,node.left])
-                
             if node.right:
                 q.append([line+1,node.right])
                 
-                
-        result=[]
-                
-        for line,val in sorted(dict.items()):
+        for line,val in sorted(d.items()):
             result.append(val)
             
         return result
+            
+            
+            
+                
+            
+            
+            
+            
+        
         

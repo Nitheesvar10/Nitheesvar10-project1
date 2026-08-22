@@ -7,16 +7,18 @@ class Node:
 '''
 
 class Solution:
-    def solve(self,node):
+    def dfs(self,node):
         if node is None:
             return 
-        self.solve(node.left)
-        self.solve(node.right)
+        
+        self.dfs(node.left)
+        self.dfs(node.right)
         self.result.append(node.data)
     def postOrder(self, root):
         self.result=[]
-        self.solve(root)
-        return self.result 
-
+        self.dfs(root)
+        return self.result
+        
+        # code here
         
         

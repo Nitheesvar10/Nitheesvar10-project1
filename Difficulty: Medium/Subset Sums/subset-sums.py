@@ -1,17 +1,15 @@
 class Solution:
-    def solve(self,idx,arr,total):
-        if idx >=len(arr):
-            self.result.append(total)
+    def solve(self,arr,idx,cur_sum):
+        if idx==len(arr):
+            self.result.append(cur_sum)
             return 
         
-        self.solve(idx+1,arr,total+arr[idx])
-        self.solve(idx+1,arr,total)
+        self.solve(arr,idx+1,cur_sum+arr[idx])
         
-        
+        self.solve(arr,idx+1,cur_sum)
         
 	def subsetSums(self, arr):
 		# code here
 		self.result=[]
-		total=0
-		self.solve(0,arr,total)
-		return self.result 
+		self.solve(arr,0,0)
+		return self.result

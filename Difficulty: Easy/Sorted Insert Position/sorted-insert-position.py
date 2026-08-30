@@ -3,15 +3,20 @@ class Solution:
         # code here
         left=0
         right=len(arr)-1
-        while left <=right :
+        
+        while left<=right:
             mid=left+(right-left)//2
             
+            
             if arr[mid]==k:
-                return mid
+                return mid 
                 
-            elif arr[mid]<k:
-                left=mid+1
-            else:
+            elif arr[mid]>k:
                 right=mid-1
+            else:
+                left=mid+1
                 
-        return left 
+            
+        return left
+                
+            

@@ -3,14 +3,14 @@ class Solution:
         # Code here
         left=0
         right=len(arr)-1
-        
-        while left<right:
+        while left <right:
             mid=left+(right-left)//2
             
-            if arr[mid]>arr[mid+1]:
+            
+            if arr[mid] >arr[mid+1]:
                 right=mid
                 
             else:
                 left=mid+1
-            
-        return left
+                
+        return left 

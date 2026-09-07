@@ -1,27 +1,26 @@
 class Solution:
     def productExceptSelf(self, arr):
         # code here
-        prefix=[0]*len(arr)
-        suffix=[0]*len(arr)
+        pre_prod=[0]*len(arr)
+        suf_prod=[0]*len(arr)
         
-        prefix[0]=arr[0]
-        suffix[-1]=arr[-1]
+        pre_prod[0]=arr[0]
+        suf_prod[-1]=arr[-1]
         
         for i in range(1,len(arr)):
-            prefix[i]=arr[i]*prefix[i-1]
+            pre_prod[i]=arr[i]*pre_prod[i-1]
             
         for i in range(len(arr)-2,-1,-1):
-            suffix[i]=arr[i]*suffix[i+1]
+            suf_prod[i]=arr[i]*suf_prod[i+1]
             
-        result=[0]*len(arr)
-        for i in range(0,len(arr)):
-            if i==0:
-                result[i]=suffix[i+1]
+        for i in range (0, len(arr)):
+            if i ==0:
+                arr[0]=suf_prod[1]
             elif i==len(arr)-1:
-                result[i]=prefix[i-1]
+                arr[i]=pre_prod[-2]
                 
             else:
+                arr[i]=pre_prod[i-1]*suf_prod[i+1]
                 
-                result[i]=prefix[i-1]*suffix[i+1]
+        return arr
                 
-        return result

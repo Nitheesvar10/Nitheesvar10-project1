@@ -2,9 +2,12 @@ class Solution:
 	def pushZerosToEnd(self, arr):
     	# code here
     	left=0
-    	for i in range(0,len(arr)):
-    	    if arr[i]!=0:
-    	        arr[i],arr[left]=arr[left],arr[i]
-    	        left+=1
-    	        
+    	right=0
+        while right <len(arr):
+            if arr[right]!=0:
+                arr[left],arr[right]=arr[right],arr[left]
+                left+=1
+                
+            right+=1
+            
         return arr

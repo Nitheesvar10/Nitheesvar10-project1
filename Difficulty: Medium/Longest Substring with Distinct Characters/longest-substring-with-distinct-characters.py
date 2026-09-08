@@ -3,26 +3,30 @@ class Solution:
         # code here
         left=0
         right=0
-        hash={}
-        cnt=0
-        max_count=0
-        while right<len(s):
-            hash[s[right]]=hash.get(s[right],0)+1
-            cnt+=1
+        h={}
+        max_len=0
+        while right <len(s):
+            h[s[right]]=h.get(s[right],0)+1
             
-            while hash[s[right]]==2:
-                hash[s[left]]-=1
-                if hash[s[left]]==0:
-                    del hash[s[left]]
+            
+            while h[s[right]]==2:
+                h[s[left]]-=1
+                if h[s[left]]==0:
+                    del h[s[left]]
+                    
+                
                 
                 left+=1
                 
-            max_count=max(max_count,right-left+1)
+            max_len=max(max_len,right-left+1)
+            
             
             right+=1
             
-        return max_count
-        
+        return max_len 
+                
+            
+                
                 
             
             
